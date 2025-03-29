@@ -2,9 +2,25 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, fetchGenres, setSelectedGenre } from '../../redux/movieSlice';
-import { Select } from 'antd';
+import { Select, Input } from 'antd';
+import { AudioOutlined, EyeOutlined, HeartOutlined } from '@ant-design/icons';
+import "./Movie.css"
 
 function Movie() {
+
+  const { Search } = Input;
+  const suffix = (
+    <AudioOutlined
+      style={{
+        fontSize: 16,
+        color: '#1677ff',
+      }}
+    />
+  );
+
+  const onSearch = (value, _e, info) =>
+    console.log(info === null || info === void 0 ? void 0 : info.source, value);
+
   const dispatch = useDispatch();
   const { movies, page, totalPages, status, genres, selectedGenre } = useSelector((store) => store.movies);
    console.log(genres,"genres");
@@ -15,12 +31,10 @@ function Movie() {
     dispatch(fetchGenres()); // Janrları çəkirik
   }, [dispatch]);
 
-  // 🟢 Janr seçimi zamanı işləyən funksiya
   const handleChange = (genreId) => {
     dispatch(setSelectedGenre(genreId));
   };
 
-  // 🔧 Filmin janrlarını ID-dən adlara çevirən funksiya
   const getGenreNames = (genreIds) => {
     return genreIds
       .map((id) => genres.find((genre) => genre.id === id)?.name)
@@ -28,15 +42,23 @@ function Movie() {
       .join(", ");
   };
 
-  // 🔥 Filtrlənmiş filmləri göstərmək
   const filteredMovies =
     selectedGenre === "All genres"
       ? movies
       : movies.filter((movie) => movie.genre_ids.includes(parseInt(selectedGenre)));
 
+  const handleDetail = (movieId) => {
+    console.log("Detail for movie ID:", movieId);
+  };
+
+  const handleLike = (movieId) => {
+    console.log("Liked movie ID:", movieId);
+  };
+
   return (
-    <div>
-      <div>
+    <div className='movie-container'>
+    <div className='functional-div'>
+    <div className='filter-div'>
         <p>Filter by Genre</p>
         <Select
           value={selectedGenre}
@@ -48,8 +70,11 @@ function Movie() {
           }))}
         />
       </div>
+      <div className='search-div'>
+    <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
+      </div>
+    </div>
 
-      <h2>Popular Movies</h2>
       <div className="movie-grid">
       {filteredMovies.length > 0 ? (
       filteredMovies.map((movie) => (
@@ -57,14 +82,19 @@ function Movie() {
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
-            style={{ width: "200px", height: "300px" }}
           />
-          <h3>{movie.title}</h3>
-          <p>{getGenreNames(movie.genre_ids)}</p>
+          <div className="movie-overlay">
+            <div className="icons">
+              <EyeOutlined className="icon" onClick={() => handleDetail(movie.id)} />
+              <HeartOutlined className="icon" onClick={() => handleLike(movie.id)} />
+            </div>
+          </div>
+          <h3 className="movie-title">{movie.title}</h3>
+          <p className="movie-genre">{getGenreNames(movie.genre_ids)}</p>
         </div>
       ))
     ) : (
-      <p>Belə bir film yoxdur</p> // 🟢 Boş olanda göstərir
+      <p>Belə bir film yoxdur</p>
     )}
       </div>
 
@@ -74,7 +104,7 @@ function Movie() {
           {status === "loading" ? "Loading..." : "Load More"}
         </button>
       )}
-    </div>
+    </div> 
   );
 }
 
