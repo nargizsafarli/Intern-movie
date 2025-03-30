@@ -16,7 +16,6 @@ export const fetchMovies = createAsyncThunk(
   }
 );
 
-// 🔥 Janrları çəkmək üçün yeni thunk
 export const fetchGenres = createAsyncThunk(
   "movies/fetchGenres",
   async (_, { rejectWithValue }) => {
@@ -36,12 +35,13 @@ const movieSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
-    genres: [], // Janrları saxlayırıq
-    selectedGenre: "All genres", // Seçilmiş janr
+    genres: [],
+    selectedGenre: "All genres",
     page: 1,
     totalPages: 1,
     status: "idle",
     error: null,
+    likedMovies: [],
   },
   reducers: {
     resetMovies: (state) => {
@@ -51,6 +51,18 @@ const movieSlice = createSlice({
     },
     setSelectedGenre: (state, action) => {
       state.selectedGenre = action.payload;
+    },
+    toggleLikeMovie: (state, action) => {
+      const movie = action.payload;
+      const exists = state.likedMovies.find((m) => m.id === movie.id);
+      if (exists) {
+        state.likedMovies = state.likedMovies.filter((m) => m.id !== movie.id);
+      } else {
+        state.likedMovies.push(movie);
+      }
+    },
+    removeLikedMovie: (state, action) => {
+      state.likedMovies = state.likedMovies.filter((m) => m.id !== action.payload);
     }
   },
   extraReducers: (builder) => {
@@ -67,6 +79,5 @@ const movieSlice = createSlice({
   },
 });
 
-export const { resetMovies, setSelectedGenre } = movieSlice.actions;
+export const { resetMovies, setSelectedGenre, toggleLikeMovie, removeLikedMovie } = movieSlice.actions;
 export default movieSlice.reducer;
-

@@ -52,3 +52,50 @@
     color: white;
     font-weight: bolder;
 }
+.liked-movies-popup {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  
+  .liked-movies-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .liked-movies-list th,
+  .liked-movies-list td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .liked-movies-list th {
+    background-color: #f4f4f4;
+  }
+  
+  .liked-movies-list td img {
+    width: 50px;
+    height: 75px;
+  }
+  
+  .liked-movies-list button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .liked-movies-list button:hover {
+    background-color: darkred;
+  }
+  
