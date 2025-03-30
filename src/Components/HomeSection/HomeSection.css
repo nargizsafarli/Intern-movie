@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .homeSection-container {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./assets/Hero-Image.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.9); 
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .studio {
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  .home-inf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .home-inf h2 {
+    font-size: 98px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+  }
+  
+  .home-inf p {
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  
+  .home-inf span {
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .discover-more {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif; /* Change to a different font if you prefer */
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .discover-more:hover {
+    background-color: white;
+    color: black;
+  }
+  
