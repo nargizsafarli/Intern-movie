@@ -1,5 +1,4 @@
-
-.movie-container {
+ .movie-container {
     background-color: #1c1c1c;
     color: #ffffff;
     padding: 30px;
@@ -15,13 +14,18 @@
 
 .filter-div, .search-div {
     display: flex;
+    gap: 10px;
     flex-direction: column;
+    p{
+        font-weight: 700;
+    }
 }
 
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
+    padding: 30px 0;
 }
 
 .movie-card {
@@ -33,7 +37,7 @@
 }
 
 .movie-card:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05);
 }
 
 .movie-card img {
@@ -43,67 +47,116 @@
     border-radius: 10px;
 }
 
-.movie-card:hover .movie-overlay {
-    opacity: 1;
-}
-
 .movie-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    padding: 10px;
-    border-radius: 10px;
+    transition: opacity 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+.movie-overlay::before,
+.movie-overlay::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    transition: transform 0.5s ease-in-out;
+}
+
+.movie-overlay::before {
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.movie-overlay::after {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+.movie-card:hover .movie-overlay::before,
+.movie-card:hover .movie-overlay::after {
+    transform: translateY(0);
+}
+
+.icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.icons .icon {
+    font-size: 35px;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    transition: transform 0.4s ease, color 0.3s;
+}
+
+.icons .icon:hover {
+    color: #1677ff;
+    transform: rotate(180deg);
+}
+
+.movie-info {
+    padding: 30px 10px;
+    background-color: #222;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.loading-button {
+    display: flex;
+    margin: 50px auto;
+    background-color: red;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.loading-button:hover {
+    background-color: #cc0000;
 }
 
 .movie-title {
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .movie-genre {
     font-size: 14px;
-    margin-bottom: 10px;
+    color: #bbb;
 }
 
-.movie-actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-.movie-actions .icon {
+.no-movies-message {
+    color: rgba(255, 0, 0, 0.6);
     font-size: 20px;
-    cursor: pointer;
-    color: #ffffff;
-    margin-right: 10px;
-}
-
-.movie-overlay .icons {
-    display: flex;
-    width: 100%;
-    height: 80%;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    
-}
-
-.movie-overlay .icons .icon {
-    font-size: 30px;
-    cursor: pointer;
-    color: #ffffff;
-    transition: color 0.3s;
-}
-
-.movie-overlay .icons .icon:hover {
-    color: #1677ff;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 button {
@@ -119,4 +172,3 @@ button {
 button:hover {
     background-color: #125bbb;
 }
-
