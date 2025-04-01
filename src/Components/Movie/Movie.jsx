@@ -21,9 +21,14 @@ function Movie() {
   const { movies, page, totalPages, status, genres, selectedGenre, likedMovies } = useSelector((store) => store.movies);
 
   useEffect(() => {
-    dispatch(fetchMovies(1));
-    dispatch(fetchGenres());
-  }, [dispatch]);
+    if (!movies.length) {
+      dispatch(fetchMovies(1));
+    }
+    if (!genres.length) {
+      dispatch(fetchGenres());
+    }
+  }, [dispatch, movies, genres]);
+  
 
   useEffect(() => {
     if (searchTerm === "") {

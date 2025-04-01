@@ -1,0 +1,59 @@
+.footer-container{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 60px 0;
+    gap: 40px;
+}
+.glubenLogo{
+    width: 200px;
+}
+.footer-link{
+    display: flex;
+    gap: 20px;
+}
+.link-items{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    border: solid 1px white;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+    a{
+        color: white;
+        transition: all 0.2s ease-in;
+
+    }
+    &:hover {
+        border-color: red;
+        a {
+            color: red;
+        }
+    }
+}
+.pages{
+    display: flex;
+    gap: 40px;
+    font-size: 20px;
+}
+.copyright{
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    align-items: center;
+    justify-content: center;
+}
+.line{
+    background-color: rgb(129, 14, 14);
+    width: 1300px;
+    height: 1.5px;
+}
+.lorem{
+    width: 400px;
+    text-align: center;
+}

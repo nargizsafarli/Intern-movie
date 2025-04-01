@@ -98,4 +98,21 @@
   .liked-movies-list button:hover {
     background-color: darkred;
   }
-  
+  .like{
+    position: relative;
+  }
+  .liked-count{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color:white;
+    font-size: 13px;
+    font-weight: bold;
+    top: -5px;
+    right: -11px;
+    color: rgb(54, 53, 53);
+  }

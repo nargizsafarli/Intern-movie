@@ -51,14 +51,14 @@ function Navbar() {
         <NavLink to="/contact" className={({ isActive }) => isActive ? "active-link" : ""}>Contact</NavLink>
       </div>
       <div className='like' onClick={toggleLikes}>
-        <HeartFilled style={{ color: 'red', fontSize: 20 }} />
-        <span>{likedMovies.length}</span>
+        <HeartFilled style={{ color: 'red', fontSize: 30 }} />
+        <span className='liked-count'><p>{likedMovies.length}</p></span>
       </div>
 
       {/* Modal */}
       <Modal
         title="Liked Movies"
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={toggleLikes}
         footer={null}
         width={600}
