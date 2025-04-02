@@ -5,9 +5,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import logo from "./assets/Team-7.jpg"
 import img1 from "./assets/Testimonial-1.jpg"
-import img2 from "./assets/Testimonial-2.jpg"
+import img2 from "./assets/person3.jpg"
 import img3 from "./assets/Team-8.jpg"
-import img4 from "./assets/Team-8.jpg"
+import img4 from "./assets/insan iste.jpg"
+import curly from "./assets/Screenshot 2025-04-01 192655.png"
+import { FaFacebook } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 function About() {
 
@@ -31,7 +36,7 @@ function About() {
     <div className='about-container'>
       <div className='about-img'>
       <h1>About Us</h1>
-      <span>Home/About Us</span>
+      <p> <span>Home</span>/About Us</p>
       </div>
 
       <div className='about-person'>
@@ -46,7 +51,7 @@ function About() {
               <p>Actress</p>
              </div>
             </div>
-            <div>qirmizi img</div>
+            <div><img src={curly}/></div>
           </div>
         </div>
         <div className='personn'>
@@ -77,6 +82,12 @@ function About() {
             <img src={member.img} alt={member.name} className="card-image" />
             <h3>{member.name}</h3>
             <p>{member.role}</p>
+             <div className='footer-link'>
+                    <p className='link-items'><a href=''><FaFacebook /></a></p>
+                    <p className='link-items'><a href=''><FaInstagram /></a></p>
+                    <p className='link-items'><a href=''><FaTwitter /></a></p>
+                    <p className='link-items'><a href=''><FaYoutube /></a></p>
+             </div>
           </div>
         ))}
       </Slider>
