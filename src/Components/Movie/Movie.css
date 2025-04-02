@@ -101,15 +101,15 @@
 }
 
 .icons .icon {
-    font-size: 35px;
+    font-size: 37px;
     cursor: pointer;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: bolder;
     transition: transform 0.4s ease, color 0.3s;
 }
 
 .icons .icon:hover {
-    color: #1677ff;
+    color: red;
     transform: rotate(180deg);
 }
 

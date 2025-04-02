@@ -20,20 +20,20 @@ function Navbar() {
 
   const columns = [
     {
-      title: 'Şəkil',
+      title: 'Poster',
       dataIndex: 'poster',
       render: (text, record) => (
         <img src={`https://image.tmdb.org/t/p/w500${record.poster_path}`} alt={record.title} style={{ width: "50px", height: "75px" }} />
       ),
     },
     {
-      title: 'Film Adı',
+      title: 'Movie Name',
       dataIndex: 'title',
     },
     {
-      title: 'Sil',
+      title: 'Delete',
       render: (text, record) => (
-        <Button type="primary" danger onClick={() => handleRemoveMovie(record.id)}>Sil</Button>
+        <Button type="primary" danger onClick={() => handleRemoveMovie(record.id)}>Delete</Button>
       ),
     },
   ];
