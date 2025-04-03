@@ -55,7 +55,6 @@ function Navbar() {
         <span className='liked-count'><p>{likedMovies.length}</p></span>
       </div>
 
-      {/* Modal */}
       <Modal
         title="Liked Movies"
         open={isModalVisible}

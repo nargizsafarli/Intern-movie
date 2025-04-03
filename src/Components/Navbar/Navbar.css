@@ -38,19 +38,19 @@
 }
 
 .nav-link a {
-    text-decoration: none; /* Alt xətt olmasın */
-    color: white; /* Linklərin rəngi */
+    text-decoration: none; 
+    color: white; 
     font-weight: bold;
-    transition: all 0.6s ease; /* Rəng keçidi */
+    transition: all 0.6s ease; 
 }
 
 .nav-link a:hover {
     color: red;
 }
 
-/* Aktiv link üçün stil */
+
 .active-link {
-    color: red !important; /* Aktiv linkin rəngi */
+    color: red !important; 
 }
 
 .login {
